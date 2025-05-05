@@ -59,9 +59,9 @@ class Particle {
     if (this.size > 0.2) this.size -= 0.03; //decrease the size of the circle
   }
   draw() {
-    ctx.fillStyle = "white";
-    //ctx.fillStyle = "hsl(" + hue + ", 100%, 50%)";
-    //ctx.fillStyle = this.color;
+    //ctx.fillStyle = "white";
+    ctx.fillStyle = "hsl(" + hue + ", 100%, 50%)";
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
