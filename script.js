@@ -30,6 +30,20 @@ canvas.addEventListener("mousemove", function (event) {
   }
 });
 
+canvas.addEventListener("touchmove",function (event) {
+    event.preventDefault(); // Prevents scrolling
+    const touch = event.touches[0];
+    if (touch) {
+      mouse.x = touch.clientX;
+      mouse.y = touch.clientY;
+      for (let i = 0; i < 3; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+  },
+  { passive: false }
+); // Needed to allow preventDefault on touch events
+
 class Particle {
   constructor() {
     this.x = mouse.x;
@@ -45,9 +59,9 @@ class Particle {
     if (this.size > 0.2) this.size -= 0.03; //decrease the size of the circle
   }
   draw() {
-    //ctx.fillStyle = "white";
+    ctx.fillStyle = "white";
     //ctx.fillStyle = "hsl(" + hue + ", 100%, 50%)";
-    ctx.fillStyle = this.color;
+    //ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
