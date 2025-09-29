@@ -1,3 +1,3 @@
 # particle-effects
 
-https://manueland123.github.io/particle-effects/
+https://bazzy22.github.io/particle-effects/
